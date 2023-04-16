@@ -35,26 +35,37 @@ Download and install Windows Powershell 7.x.x (pwsh.exe) and xmlstarlet:
 
 The following directory structure will be created when the Powershell fiels are run:
 
-├── **prod**   <-  Directory for the production import
-│   ├── **files**   <-  the script will write files into this directory 
-│   │   ├── **todo**   <-  Agent Online will move files from the **files** directory into this directory before starting the processing, so that new downloads from the scrip will not conflict with the import of the files
-│   │   │   ├── **error**   <-  If an error occurs during the import, the files will be moved to this **directory**
-│   │   │   ├── **save**   <-  After import the files will be moved to dynamically created directory per **month**
-│   │   │   │   ├── **2023-04**
-│   │   │   │   ├── **2023-05**
-│   │   │   │   ├── ...
-│   ├── **log**   <-   the log files for the past few days
+     .
+    ├── prod
+    │   ├── files
+    │   │   ├── todo
+    │   │       ├── error
+    │   │       ├── save
+    │   │           ├── 2023-04
+    │   │           ├── 2023-05
+    │   │           ├── ...
+    │   ├── log
+
+    .
+    ├── stg
+    │   ├── files
+    │   │   ├── todo
+    │   │       ├── error
+    │   │       ├── save
+    │   │           ├── 2023-04
+    │   │           ├── 2023-05
+    │   │           ├── ...
+    │   ├── log
 
 
-├── **stg**   <-  Directory for the staging import
-│   ├── **files**   <-  the script will write files into this directory 
-│   │   ├── **todo**   <-  Agent Online will move files from the **files** directory into this directory before starting the processing, so that new downloads from the scrip will not conflict with the import of the files
-│   │   │   ├── **error**   <-  If an error occurs during the import, the files will be moved to this **directory**
-│   │   │   ├── **save**   <-  After import the files will be moved to dynamically created directory per **month**
-│   │   │   │   ├── **2023-04**
-│   │   │   │   ├── **2023-05**
-│   │   │   │   ├── ...
-│   ├── **log**   <-   the log files for the past few days
+    prod: Directory for the production import
+    stg: Directory for the staging import
+    files: The script will write files into this directory 
+    todo: Agent Online will move files from the **files** directory into this **todo** directory before starting the processing, so that new downloads from the scrip will not conflict with the import of the files
+    error: If an error occurs during the import, the files will be moved to this **error** directory
+    save: After import the files will be moved to dynamically created directory per month
+    log: The log files for the past few days
+
  
 ## Task Scheduler
  
