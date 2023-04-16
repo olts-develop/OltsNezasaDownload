@@ -6,7 +6,7 @@ Create a folder, and place all files into this directory: PS1 and BAT files.
 
 The BAT files are for manual testing. The PS1 files are called from the BAT files, and can be called from the Windows Task Scheduler.
 
-Edit the batch files **nezasa_download_files_STG.bat** and **nezasa_download_files_PROD.bat**, and assign the appropriate AGENCY code supplied by Nezasa.
+Edit the batch files ```nezasa_download_files_STG.bat``` and ```nezasa_download_files_PROD.bat```, and assign the appropriate AGENCY code supplied by Nezasa.
 
 ## Credentials-Files
 
@@ -20,8 +20,9 @@ Enter the password supplied by Nezasa for the AGENCY.
 
 Two files will be created:
 
-SecureCredentialsPROD.xml
-SecureCredentialsSTG.xml
+```SecureCredentialsPROD.xml```
+
+```SecureCredentialsSTG.xml```
 
 The files will contain an encoded password for the PROD and STG environments that can only be used on this machine, and are referenced in the PS1 files.
 
@@ -58,13 +59,13 @@ The following directory structure will be created when the Powershell fiels are 
     │   ├── log
 
 
-    prod: Directory for the production import
-    stg: Directory for the staging import
-    files: The script will write files into this directory 
-    todo: Agent Online will move files from the **files** directory into this **todo** directory before starting the processing, so that new downloads from the scrip will not conflict with the import of the files
-    error: If an error occurs during the import, the files will be moved to this **error** directory
-    save: After import the files will be moved to dynamically created directory per month
-    log: The log files for the past few days
+- prod: Directory for the production import
+- stg: Directory for the staging import
+- files: The script will write files into this directory 
+- todo: Agent Online will move files from the **files** directory into this **todo** directory before starting the processing, so that new downloads from the scrip will not conflict with the import of the files
+- error: If an error occurs during the import, the files will be moved to this **error** directory
+- save: After import the files will be moved to dynamically created directory per month
+- log: The log files for the past few days
 
  
 ## Task Scheduler
@@ -79,8 +80,8 @@ To run the scripts every minute in the windows task scheduler:
 	
 2) Create a new task in the windows task scheduler:
 
-	- Command: pwsh.exe 
-	- Parameters: -File nezasa_download_files_STG.ps1 -AGENCY xxxxxxx
+	- Command: **pwsh.exe** 
+	- Parameters: **-File nezasa_download_files_STG.ps1 -AGENCY xxxxxxx**
 	- Working directory: the Nezasa import root directory in which the PS1 files are.
 	
 3) The trigger can run every minute, but the trigger should be set up, to stop the job after 5 minutes, to prevent any endless loops in the PS1 code from eating up all the memory on the machine.
