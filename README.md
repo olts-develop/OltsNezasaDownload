@@ -13,6 +13,7 @@ Edit the batch files **nezasa_download_files_STG.bat** and **nezasa_download_fil
 Run once to create secure credential file, depending on the environment:
 
 ```Get-Credential | EXPORT-CLIXML "SecureCredentialsSTG.xml"```
+
 ```Get-Credential | EXPORT-CLIXML "SecureCredentialsPROD.xml"```
 
 Enter the password supplied by Nezasa for the AGENCY.
